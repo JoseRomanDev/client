@@ -52,12 +52,12 @@ async function genres(){
         const genresData = await fetchGenres(URL_GENRES); //Para obtener los generos de la api
         const genreObjects = await parseToGenreObjects(genresData); //Parsear dichos datos a objeto literal
         genreSelectOptions(genreObjects); //Añadirlos al selector
-        
+        genreSelect.addEventListener("change", (e) =>{
+            
+        });
     } catch (error) {
         console.error(error);
     }
 }
 
-genres()
-
-window.addEventListener('DOMContentLoaded', genres);
+genres();
