@@ -36,8 +36,8 @@ function parseToGenreObjects(data){
 }
 // Función para añadir los datos de generos en el selector
 function genreSelectOptions(genres) {
-    genreSelect.innerHTML = '';
-    genreSelect.append(firstOptionGenre);
+   //genreSelect.innerHTML = '';
+    //genreSelect.append(firstOptionGenre);
     genres.forEach(genre => {
         const option = document.createElement("option");
         option.value = genre.value;
@@ -47,17 +47,17 @@ function genreSelectOptions(genres) {
 }
 
 //Funcion del evento para añadir al selecto
-async function genres(){
+async function funtionalSelects(){
     try {
         const genresData = await fetchGenres(URL_GENRES); //Para obtener los generos de la api
         const genreObjects = await parseToGenreObjects(genresData); //Parsear dichos datos a objeto literal
         genreSelectOptions(genreObjects); //Añadirlos al selector
         genreSelect.addEventListener("change", (e) =>{
-            
+
         });
     } catch (error) {
         console.error(error);
     }
 }
 
-genres();
+funtionalSelects();
